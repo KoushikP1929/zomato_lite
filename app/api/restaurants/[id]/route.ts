@@ -51,20 +51,19 @@ export async function GET(
   );
 
   // Answer 2 - the newest voice, if any.
-  const latestRows = await sql.query(
+  const latest = (await sql.query(
     "SELECT id, rating, comment, created_at FROM reviews WHERE restaurant_id = $1 ORDER BY created_at DESC LIMIT 1",
     [restaurantId],
-  );
-  const latest = latestRows[0] as ReviewRow | undefined;
+  ))[0] as ReviewRow | undefined;
 
   // Answer 3 - every other voice, newest first (the page shows the newest one
   // separately, so we do not hand the same review twice).
-  const olderRows = latest
+  const olderRows = (latest
     ? await sql.query(
         "SELECT id, rating, comment, created_at FROM reviews WHERE restaurant_id = $1 AND id <> $2 ORDER BY created_at DESC",
         [restaurantId, latest.id],
       )
-    : [];
+    : []) as ReviewRow[];
 
   return Response.json({
     name: restaurant.name,
