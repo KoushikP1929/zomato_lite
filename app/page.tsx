@@ -1,7 +1,7 @@
+// The lobby: its only job is to send every visitor to the restaurant.
+// One redirect, no heartbeat, nothing to think about.
+import { redirect } from "next/navigation";
+
 export default function Home() {
-  return (
-    <main className="flex min-h-screen items-center justify-center bg-zinc-50 font-sans dark:bg-black">
-      <h1 className="text-2xl text-black dark:text-zinc-50">Zomato Lite is alive.</h1>
-    </main>
-  );
+  redirect("/restaurant/1");
 }
