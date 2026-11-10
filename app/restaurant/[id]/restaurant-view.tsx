@@ -54,7 +54,28 @@ export default function RestaurantView({ id }: { id: string }) {
   }, [id]);
 
   if (status === "loading") {
-    return <p className="p-20 text-center text-sm text-zinc-500">Loading…</p>;
+    return (
+      <main
+        className="mx-auto min-h-screen w-full max-w-[560px] bg-zinc-50 px-6 py-16"
+        aria-busy="true"
+        aria-label="Loading restaurant"
+      >
+        <div className="animate-pulse">
+          <div className="h-7 w-48 rounded bg-zinc-200" />
+          <div className="mt-2 h-4 w-32 rounded bg-zinc-200" />
+          <div className="mt-10 flex items-end gap-3">
+            <div className="h-14 w-24 rounded bg-zinc-200" />
+            <div className="mb-2 h-4 w-20 rounded bg-zinc-200" />
+          </div>
+          <div className="mt-8 h-36 rounded-xl bg-zinc-200" />
+          <div className="mt-4 space-y-4">
+            <div className="h-16 rounded bg-zinc-200" />
+            <div className="h-16 rounded bg-zinc-200" />
+            <div className="h-16 rounded bg-zinc-200" />
+          </div>
+        </div>
+      </main>
+    );
   }
   if (status === "notfound" || status === "error") {
     return (
