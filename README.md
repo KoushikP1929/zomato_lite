@@ -3,9 +3,14 @@
 > A vertical slice of a food-delivery product: browse a restaurant, read what people said, and
 > write a review. Built from product spec → data model → API contract → working UI.
 
-**Stack:** Next.js 16 (App Router) · TypeScript · Tailwind CSS · PostgreSQL (Neon)
+**Live demo:** https://zomato-lite-blond-three.vercel.app/restaurant/1
+**Stack:** Next.js 16 (App Router) · TypeScript · Tailwind CSS · PostgreSQL (Neon) · Vercel
 
-> Runs locally. No live deployment yet — setup instructions below.
+## Screens
+
+| Restaurant page | Write a review |
+|---|---|
+| ![Restaurant](docs/zomato-restaurant.png) | ![Review form](docs/zomato-review-form.png) |
 
 ---
 
@@ -118,7 +123,6 @@ The seed script is idempotent — re-running it does not duplicate the sample re
 
 ## What I'd build next
 
-- Deploy a live demo and add screenshots
 - Edit and delete your own review (needs a lightweight identity model)
 - Rating distribution and "most helpful" sorting on the restaurant page
 - Pagination once reviews outgrow one screen
